@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="kk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#eaf6ff">
+  <meta name="description" content="Zigi-Zagi: Feed Barys — Тәуелсіздік күніне арналған мерекелік физикалық ойын.">
+  <title>Zigi-Zagi: Feed Barys</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-glow glow-left"></div>
+  <div class="page-glow glow-right"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Zigi-Zagi">
+      <img class="brand-logo" src="assets/zigi-zagi-logo.jpg" alt="Zigi-Zagi Lemonade logo">
+      <span class="brand-name">FEED BARYS</span>
+    </a>
+    <div class="topbar-actions">
+      <div class="language-switch" role="group" aria-label="Language">
+        <button class="language-button is-active" data-lang="kk" aria-pressed="true">ҚАЗ</button>
+        <button class="language-button" data-lang="ru" aria-pressed="false">РУС</button>
+      </div>
+      <button class="sound-toggle" id="sound-toggle" aria-label="Музыка и звук">
+        <span class="sound-icon" id="sound-icon">♫</span>
+        <span class="sound-label" data-i18n="sound">Дыбыс</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="sunburst">✺</span><span data-i18n="occasion">16 желтоқсан · Қазақстан</span></div>
+        <h1 data-i18n="greeting">Тәуелсіздік күні құтты болсын!</h1>
+        <p class="hero-description" data-i18n="intro">Мерекелік аспанға көтеріле отырып, сусынды Барысқа жеткіз. Арқанды қиып, жұлдыздарды жина!</p>
+        <div class="hero-actions">
+          <button class="primary-button" id="hero-play">
+            <span data-i18n="play">ОЙНАУ</span><span class="button-arrow">↗</span>
+          </button>
+          <button class="text-button" id="open-levels"><span class="level-dots">•••</span><span data-i18n="levels">Деңгейлер</span></button>
+        </div>
+        <div class="hero-note">
+          <span class="note-flag" aria-hidden="true"><span class="flag-sun">✹</span></span>
+          <span data-i18n="holiday-note">Қазақстанның Тәуелсіздік күніне арналған мерекелік ойын</span>
+        </div>
+      </div>
+
+      <div class="game-column">
+        <div class="game-intro-row">
+          <div class="game-kicker"><span class="live-dot"></span><span data-i18n="game-label">МЕРЕКЕЛІК ОЙЫН</span></div>
+          <div class="game-progress" id="game-progress">1 / 30</div>
+        </div>
+        <div class="cabinet">
+          <div class="cabinet-top">
+            <div class="level-heading">
+              <span class="level-index" id="level-index">01</span>
+              <div><strong id="chapter-title">Blue Splash</strong><small id="level-subtitle">Level 1 · Тәуелсіздік</small></div>
+            </div>
+            <div class="cabinet-controls">
+              <button class="icon-button" id="restart-level" aria-label="Restart">↻</button>
+              <button class="icon-button" id="cabinet-levels" aria-label="Level select">⌗</button>
+            </div>
+          </div>
+          <div class="stage-wrap" id="stage-wrap">
+            <canvas id="game-canvas" width="420" height="700" aria-label="Zigi-Zagi game with Barys the snow leopard"></canvas>
+            <div class="stage-hud">
+              <div class="stage-stars" id="stage-stars"><span>☆</span><span>☆</span><span>☆</span></div>
+              <button class="wind-button" id="wind-button" hidden><span class="wind-glyph">〰</span><span data-i18n="wind">Желді қосу</span></button>
+            </div>
+            <div class="intro-overlay" id="intro-overlay">
+              <div class="overlay-flag">✹ <span data-i18n="holiday-tag">ТӘУЕЛСІЗДІК КҮНІ</span> ✹</div>
+              <h2 data-i18n="start-title">Барысқа көмектес!</h2>
+              <p data-i18n="start-copy">Арқанды саусағыңмен сырғытып қи. Жұлдыздарды жинап, сусынды Барысқа жеткіз.</p>
+              <button class="overlay-play" id="start-game"><span data-i18n="play-now">БАСТАУ</span><span>→</span></button>
+              <div class="gesture-hint"><span class="gesture-line"></span><span data-i18n="gesture">Арқанды кесу үшін үстінен сырғыт</span></div>
+            </div>
+            <div class="toast" id="toast" aria-live="polite"></div>
+            <div class="level-modal" id="level-modal" aria-hidden="true">
+              <div class="modal-head">
+                <div><span class="modal-kicker" data-i18n="map-label">ДЕҢГЕЙ КАРТАСЫ</span><h2 data-i18n="map-title">Мерекелік саяхат</h2></div>
+                <button class="icon-button close-modal" id="close-levels" aria-label="Close">×</button>
+              </div>
+              <div class="chapter-legend" id="chapter-legend"></div>
+              <div class="level-grid" id="level-grid"></div>
+              <p class="map-footnote" data-i18n="map-foot">Жұлдыздарың мен ашылған деңгейлер осы құрылғыда сақталады.</p>
+            </div>
+            <div class="result-modal" id="result-modal" aria-hidden="true">
+              <div class="result-sparkle">✦ ✧ ✦</div>
+              <div class="result-title" id="result-title"></div>
+              <p id="result-copy"></p>
+              <div class="result-actions">
+                <button class="overlay-play" id="next-level"><span data-i18n="continue">ЖАЛҒАСТЫРУ</span><span>→</span></button>
+                <button class="retry-button" id="retry-level" data-i18n="retry">ҚАЙТА ОЙНАУ</button>
+              </div>
+            </div>
+          </div>
+          <div class="cabinet-footer">
+            <span class="cut-help"><span class="cut-sample"></span><span data-i18n="cut-hint">Арқанды кесу үшін сырғыт</span></span>
+            <span class="can-label"><span class="can-dot"></span><span id="can-name">Zigi Cola</span></span>
+          </div>
+        </div>
+        <div class="cabinet-caption"><span data-i18n="caption">Саусағыңмен немесе тінтуірмен ойна</span><span>✦ ✦ ✦</span></div>
+      </div>
+    </section>
+
+    <section class="flavor-section">
+      <div class="section-heading">
+        <div><div class="eyebrow small-eyebrow"><span class="sunburst">✺</span><span data-i18n="flavor-kicker">ZIGI-ZAGI ӘЛЕМІ</span></div>
+          <h2 data-i18n="flavor-title">Қай дәмді таңдайсың?</h2></div>
+        <p data-i18n="flavor-copy">Әр сусынның өз әлемі мен ерекше кедергілері бар.</p>
+      </div>
+      <div class="flavor-row" id="flavor-row">
+        <button class="flavor-card is-selected" data-product="blue">
+          <span class="flavor-image-frame"><img src="assets/can-blue.svg" alt="Праздничная банка Zigi Cola ко Дню независимости" loading="lazy" decoding="async"></span>
+          <span class="flavor-name" data-i18n="blue-name">Zigi Cola</span><span class="flavor-tag" data-i18n="starter">БІРІНШІ ДӘМ</span>
+        </button>
+        <button class="flavor-card" data-product="mango">
+          <span class="flavor-image-frame"><img src="assets/can-mango.svg" alt="Иллюстрация банки со вкусом манго-ананас" loading="lazy" decoding="async"></span>
+          <span class="flavor-name" data-i18n="mango">Манго-ананас</span><span class="flavor-tag" data-i18n="chapter">10 ДЕҢГЕЙ</span>
+        </button>
+        <button class="flavor-card" data-product="strawberry">
+          <span class="flavor-image-frame"><img src="assets/can-strawberry.svg" alt="Иллюстрация банки со вкусом клубники" loading="lazy" decoding="async"></span>
+          <span class="flavor-name" data-i18n="strawberry">Құлпынай</span><span class="flavor-tag" data-i18n="chapter">10 ДЕҢГЕЙ</span>
+        </button>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <span class="footer-brand">Zigi-Zagi <span>✦</span></span>
+    <span data-i18n="footer">Тәуелсіздік күні құтты болсын, Қазақстан!</span>
+    <span class="footer-year">16 · 12</span>
+  </footer>
+  <script src="game.js"></script>
+</body>
+</html>
