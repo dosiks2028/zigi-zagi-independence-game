@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 440">
+  <defs>
+    <linearGradient id="body" x1="0" x2="1">
+      <stop stop-color="#f9fbeb"/><stop offset=".18" stop-color="#fff"/><stop offset=".55" stop-color="#fff9db"/><stop offset="1" stop-color="#d3d8bf"/>
+    </linearGradient>
+    <linearGradient id="fruit" x1="0" x2=".8" y1="0" y2="1">
+      <stop stop-color="#ffdc55"/><stop offset=".5" stop-color="#ffad34"/><stop offset="1" stop-color="#ec6e31"/>
+    </linearGradient>
+    <linearGradient id="pine" x1="0" x2="1">
+      <stop stop-color="#f8d450"/><stop offset=".5" stop-color="#eeb330"/><stop offset="1" stop-color="#c97d28"/>
+    </linearGradient>
+    <linearGradient id="silver" x1="0" x2="0" y1="0" y2="1">
+      <stop stop-color="#fff"/><stop offset=".5" stop-color="#bac7cc"/><stop offset=".75" stop-color="#f9fcfc"/><stop offset="1" stop-color="#9baab1"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" x2="1">
+      <stop stop-color="#fff" stop-opacity=".7"/><stop offset=".24" stop-color="#fff" stop-opacity=".13"/><stop offset=".85" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity=".35"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-10%" width="160%" height="130%"><feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#6c592c" flood-opacity=".2"/></filter>
+    <clipPath id="bodyclip"><path d="M51 28h98q5 0 7 7l7 31q9 15 9 37v284q0 22-19 24H47q-19-2-19-24V103q0-22 9-37l7-31q2-7 7-7Z"/></clipPath>
+  </defs>
+  <ellipse cx="100" cy="421" rx="68" ry="10" fill="#684d24" opacity=".13"/>
+  <g filter="url(#shadow)">
+    <path d="M51 28h98q5 0 7 7l7 31q9 15 9 37v284q0 22-19 24H47q-19-2-19-24V103q0-22 9-37l7-31q2-7 7-7Z" fill="url(#body)" stroke="#f8ffff" stroke-width="2"/>
+    <g clip-path="url(#bodyclip)">
+      <path d="M25 260q42-21 78-2t89-6v170H25Z" fill="url(#fruit)"/>
+      <path d="M26 325q37-19 72-2t94-7v106H26Z" fill="#e88b39" opacity=".3"/>
+      <path d="M31 92h138v13H31z" fill="#9ab54d"/>
+      <path d="M33 106h134v7H33z" fill="#e9c337"/>
+      <path d="M31 92v275q0 24 19 30V93Z" fill="url(#shine)"/>
+      <text x="100" y="143" text-anchor="middle" font-family="Trebuchet MS,Arial,sans-serif" font-size="24" font-style="italic" font-weight="900" fill="#273744">Zigi-Zagi</text>
+      <text x="100" y="167" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="3" fill="#55707a">ICE TEA</text>
+      <g transform="translate(43 190)">
+        <path d="M40 31Q15 2 5 26q23 5 31 19" fill="#438c55"/>
+        <path d="M55 30q4-36 28-23-4 24-26 30" fill="#388955"/>
+        <path d="M71 37q22-28 35-8-13 20-33 23" fill="#70aa50"/>
+        <path d="M29 56c-6-30 23-47 47-29 21 16 22 54-4 72-25 18-54-7-43-43Z" fill="url(#pine)" stroke="#bc8528" stroke-width="2"/>
+        <path d="M52 35l-8 55M68 31l-5 71M84 36l-4 56M36 49l53 10M33 66l50 10" fill="none" stroke="#fff0ad" stroke-width="2" opacity=".6"/>
+        <path d="M85 62c18-20 43-11 43 7-2 22-22 41-45 35-19-6-17-28 2-42Z" fill="url(#fruit)" stroke="#d56c32" stroke-width="2"/>
+        <path d="M91 68q17 0 29 20M88 79q17 4 22 22" fill="none" stroke="#ffe59b" stroke-width="2" opacity=".7"/>
+        <path d="M96 64q-2-19 7-28 7 10 3 22 10-17 21-12-7 14-23 20" fill="#538d45"/>
+      </g>
+      <text x="100" y="361" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="900" letter-spacing="1.3" fill="#fff">МАНГО-АНАНАС</text>
+      <text x="100" y="382" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="700" letter-spacing="1" fill="#fff6d7">450 ml · ТРОПИКАЛЫҚ ДӘМ</text>
+    </g>
+    <ellipse cx="100" cy="31" rx="50" ry="10" fill="url(#silver)" stroke="#8798a1" stroke-width="1.3"/>
+    <ellipse cx="100" cy="30" rx="30" ry="4.5" fill="#87939a"/>
+    <path d="M83 29q17-5 34 0l-4 5H86Z" fill="#dfe7e9"/>
+    <path d="M46 411q54 10 108 0" fill="none" stroke="#a8b8c0" stroke-width="5"/>
+    <ellipse cx="100" cy="412" rx="51" ry="8" fill="none" stroke="#eef8fa" stroke-width="3"/>
+  </g>
+</svg>
